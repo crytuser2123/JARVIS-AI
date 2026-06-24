@@ -55,7 +55,15 @@ jobs:
           # latest.json + .sig and the in-app "Update & Restart" button works.
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
-          # No code-signing certs yet: macOS bundles ad-hoc, Windows unsigned.
+          # macOS code signing + notarization — tauri-action imports the cert,
+          # signs with the Developer ID identity, then notarizes & staples the
+          # .dmg (because APPLE_ID / APPLE_PASSWORD / APPLE_TEAM_ID are present).
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         with:
           projectPath: app
           tagName: ${{ github.ref_type == 'tag' && github.ref_name || 'v0.2.0' }}
