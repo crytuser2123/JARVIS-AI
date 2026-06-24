@@ -1,0 +1,22 @@
+# local preview secret (never commit)
+demo-config.local.js
+
+# dependencies & build output
+node_modules/
+app/node_modules/
+app/src-tauri/target/
+dist/
+build/
+
+# Cloudflare worker local state / secrets
+app/demo-proxy/.wrangler/
+app/demo-proxy/.dev.vars
+
+# OS / editor cruft
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# local Claude Code settings
+.claude/

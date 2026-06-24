@@ -1,0 +1,35 @@
+[package]
+name = "jarvis"
+version = "0.2.0"
+description = "J.A.R.V.I.S. — local-first voice AI assistant"
+authors = ["Jarvis"]
+edition = "2021"
+rust-version = "1.77"
+
+# The library is what the mobile/desktop entry points share.
+[lib]
+name = "jarvis_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Sprint 2: OpenAI chat streaming + key in OS keychain (macOS + Windows)
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "multipart", "rustls-tls"] }
+futures-util = "0.3"
+tokio = { version = "1", features = ["time"] }
+keyring = { version = "3", features = ["apple-native", "windows-native"] }
+base64 = "0.22"
+# Sprint 4: durable data model — key→JSON store in SQLite (bundled, no system dep)
+rusqlite = { version = "0.32", features = ["bundled"] }
+# Sprint 8: in-app auto-update (GitHub Releases, signature-verified)
+tauri-plugin-updater = "2"
+tauri-plugin-process = "2"
+
+[features]
+# this feature is used to produce a slimmer binary for mobile in the future
+custom-protocol = ["tauri/custom-protocol"]

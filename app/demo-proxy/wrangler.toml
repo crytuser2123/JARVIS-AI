@@ -1,0 +1,17 @@
+name = "jarvis"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Serve the Jarvis preview UI (app/src) as static assets from this same
+# Worker. Requests that match a file are served directly; everything else
+# (/chat, /tts) falls through to the fetch handler in worker.js. One origin
+# for UI + API → zero CORS.
+[assets]
+directory = "../src"
+
+# Origins allowed to call the proxy. "*" = any (fine for the test demo).
+[vars]
+ALLOWED_ORIGINS = "*"
+
+# OPENAI_API_KEY is NOT set here — it's a secret, added in the dashboard
+# (Settings → Variables and secrets) or via `wrangler secret put OPENAI_API_KEY`.

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "JARVIS",
+  "version": "0.2.0",
+  "identifier": "com.jarvis.app",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "J.A.R.V.I.S.",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 680,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0Mjg1NzI2NDAyMDlBNjkKUldScG1pQkFKbGNvcEV4blRpK3FyT2JoaXhLRkZPQlFQUmNEOU9qaDVZMUoxdkFkdXZpMTlzRWkK",
+      "endpoints": [
+        "https://github.com/jamkabhazan-rgb/jarvis/releases/latest/download/latest.json"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "createUpdaterArtifacts": true,
+    "category": "Productivity",
+    "shortDescription": "Local-first voice AI assistant",
+    "longDescription": "J.A.R.V.I.S. — a local-first, cinematic voice AI assistant. The whole AI surface runs on one OpenAI key held only by the local core.",
+    "copyright": "© 2026 Jarvis",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "10.15"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
+  }
+}
