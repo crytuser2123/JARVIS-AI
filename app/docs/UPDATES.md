@@ -32,7 +32,7 @@ git push origin v0.2.0
 Через ~20–30 минут на странице **Releases** появится **черновик** релиза со
 всеми установщиками. Проверь его и нажми **Publish release** — после этого
 пользователи скачивают новую версию по ссылке:
-`https://github.com/jamkabhazan-rgb/jarvis/releases/latest`
+`https://github.com/crytuser2123/JARVIS-AI/releases/latest`
 
 > Черновик (draft) сделан специально: автообновление и ссылка `latest`
 > видят релиз только после ручной публикации — у тебя всегда есть

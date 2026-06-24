@@ -102,7 +102,7 @@ export default {
 async function download(url, cors) {
   const platform = url.pathname.split("/").pop();
   const gh = { "User-Agent": "jarvis-proxy", "Accept": "application/vnd.github+json" };
-  const rel = await (await fetch("https://api.github.com/repos/jamkabhazan-rgb/jarvis/releases/latest", { headers: gh })).json();
+  const rel = await (await fetch("https://api.github.com/repos/crytuser2123/JARVIS-AI/releases/latest", { headers: gh })).json();
   const assets = rel.assets || [];
   const pick = (re) => assets.find((a) => re.test(a.name));
   let asset, base;

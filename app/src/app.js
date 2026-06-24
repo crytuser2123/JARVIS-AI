@@ -466,7 +466,7 @@
     // installers stream through the proxy with a clean filename (Jarvis.dmg / Jarvis.exe)
     if(mac){ mac.href=base+'/dl/mac'; mac.removeAttribute('target'); }
     if(win){ win.href=base+'/dl/win'; win.removeAttribute('target'); }
-    fetch('https://api.github.com/repos/jamkabhazan-rgb/jarvis/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
+    fetch('https://api.github.com/repos/crytuser2123/JARVIS-AI/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
       .then(r=> r.ok?r.json():Promise.reject())
       .then(rel=>{ const a=rel.assets||[];
         if(macIntel && a.some(x=>/(x64|x86_64|intel).*\.dmg$/i.test(x.name))){ macIntel.href=base+'/dl/mac-intel'; macIntel.hidden=false; }

@@ -33,7 +33,7 @@ with the key safely server-side.
 ## Lock it down
 
 `wrangler.toml` → `ALLOWED_ORIGINS`: set this to exactly your GitHub Pages
-origin (e.g. `https://jamkabhazan-rgb.github.io`) plus localhost for testing.
+origin (e.g. `https://crytuser2123.github.io`) plus localhost for testing.
 Requests from other origins are rejected. Tune the caps at the top of
 `worker.js` (`MAX_TOKENS`, `MAX_PER_WINDOW`) to taste. For strict,
 cross-region rate limiting, back `HITS` with a KV namespace.
