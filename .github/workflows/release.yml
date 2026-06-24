@@ -24,6 +24,9 @@ jobs:
           - platform: windows-latest
             args: ''
     runs-on: ${{ matrix.platform }}
+    # Hard cap so a hung signing/notarization step fails fast instead of
+    # burning the full 6h job limit (macOS minutes bill at 10x).
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
